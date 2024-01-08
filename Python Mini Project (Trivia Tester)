@@ -1,0 +1,53 @@
+import random
+
+def ask_question(question, correct_answer):
+    user_answer = input(f"{question} ") #takes input and compares it to the question
+    return user_answer.lower() == correct_answer.lower() #converts to lowercase
+
+def trivia_game():
+    questions = [
+        {"question": "What is the capital of France?", "answer": "Paris"},
+        {"question": "Which planet is known as the Red Planet?", "answer": "Mars"},
+        {"question": "What is the largest mammal in the world?", "answer": "Blue Whale"}, 
+        {"question": "What is the largest continent?", "answer": "Asia"},
+        {"question": "What does the chemical symbol Au on the periodic table stand for?", "answer": "Gold"},
+        {"question": "What direction does the sun rise from?", "answer": "East"},
+        {"question": "In what country do you find the Great Wall?", "answer": "China"},
+        {"question": "How many meters are in a kilometer? (Answer numerically with no commas)", "answer": "1000"},
+        {"question": "What is the name of the world's highest mountain peak?", "answer": "Mount Everest"},
+        {"question": "What is the tallest animal in the world?", "answer": "Giraffe"},
+        {"question": "How many lives are cats said to have? (Answer numerically)", "answer": "9"},
+        {"question": "Which planet is closest to the sun?", "answer": "Mercury"},
+        {"question": "How many days are there in September? (Answer numerically)", "answer": "30"},
+        {"question": "How many seasons are there? (Answer numerically)", "answer": "4"},
+        {"question": "What is the biggest state in the United States?", "answer": "Alaska"},
+        {"question": "In what country would you find the Leaning Tower of Pisa?", "answer": "Italy"},
+        {"question": "What term refers to the distance around a circle?", "answer": "Circumference"},
+        {"question": "What is the world's longest river called? The ... River", "answer": "Nile"},
+        {"question": "What house in Harry Potter was he sorted into", "answer": "Gryfindor"},
+        {"question": "What sport does Lebron James play?", "answer": "Basketball"},
+        {"question": "What is the name of Han Solo's ship in Star Wars?", "answer": "Millennium Falcon"}
+        # Add more questions as needed
+    ]
+
+    random.shuffle(questions)  # Shuffle the questions for variety
+
+    score = 0
+
+    for q in questions:
+        print(f"Question: {q['question']}")
+        if ask_question("Your Answer: ", q["answer"]):
+            print("Correct! 🎉\n")
+            score += 1
+        else:
+            print(f"Wrong! The correct answer is: {q['answer']} 😔\n")
+
+        print_separator()
+
+    print(f"Your final score is: {score}/{len(questions)}\n")
+
+if __name__ == "__main__":
+    print("Welcome to the Trivia Game!\n")
+    print("Today I will ask you 20 simple trivia questions, do your best to get the highest score you can! Have fun!!!\n")
+    print("*************************************************************************************************************\n")
+    trivia_game()
